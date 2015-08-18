@@ -44,6 +44,13 @@ namespace PaintDotNet.Effects
             InitializeComponent();
         }
 
+        public void helpButtonClicked(Object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PieChartConfigDialog));
+            MessageBox.Show(resources.GetString("textBox1.Text"), "Pie Chart");
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Make sure there's a category name
