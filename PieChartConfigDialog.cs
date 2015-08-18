@@ -63,6 +63,8 @@ namespace PaintDotNet.Effects
             double d;
             if (!double.TryParse(tbCategoryValue.Text, out d))
             {
+                MessageBox.Show(this, "Category values must be numerical", this.Text,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbCategoryValue.Focus();
                 return;
             }
