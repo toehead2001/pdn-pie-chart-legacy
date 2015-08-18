@@ -1,11 +1,58 @@
 ﻿// Author:          Evan Olds
 // Creation Date:   January 6, 2012
 
+using System;
 using System.Drawing;
+using System.Reflection;
 
 namespace PaintDotNet.Effects
 {
-    internal class RenderPieChart : Effect<PieChartConfigToken>
+    public class PluginSupportInfo : IPluginSupportInfo
+    {
+        public string Author
+        {
+            get
+            {
+                return ((AssemblyCopyrightAttribute)base.GetType().Assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false)[0]).Copyright;
+            }
+        }
+        public string Copyright
+        {
+            get
+            {
+                return ((AssemblyDescriptionAttribute)base.GetType().Assembly.GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false)[0]).Description;
+            }
+        }
+
+        public string DisplayName
+        {
+            get
+            {
+                return ((AssemblyProductAttribute)base.GetType().Assembly.GetCustomAttributes(typeof(AssemblyProductAttribute), false)[0]).Product;
+            }
+        }
+
+        public Version Version
+        {
+            get
+            {
+                return base.GetType().Assembly.GetName().Version;
+            }
+        }
+
+        public Uri WebsiteUri
+        {
+            get
+            {
+                return new Uri("http://www.getpaint.net/redirect/plugins.html");
+            }
+        }
+    }
+
+    [PluginSupportInfo(typeof(PluginSupportInfo), DisplayName = "Pie Chart")]
+
+
+	internal class RenderPieChart : Effect<PieChartConfigToken>
     {
         private EOFC.Drawing32 m_d32 = new EOFC.Drawing32();
         
