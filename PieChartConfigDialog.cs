@@ -81,9 +81,15 @@ namespace PaintDotNet.Effects
                 Convert.ToDouble(tbCategoryValue.Text), pnlColor.BackColor);
             lbCategories.Items.Add(item);
 
+            Random randomGen = new Random();
+            KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+            KnownColor randomColorName = names[randomGen.Next(names.Length)];
+            Color randomColor = Color.FromKnownColor(randomColorName);
+
             // Clear the fields for the next item
             tbCategoryName.Text = string.Empty;
             tbCategoryValue.Text = string.Empty;
+            pnlColor.BackColor = randomColor;
 
             // Focus back on the name box
             tbCategoryName.Focus();
