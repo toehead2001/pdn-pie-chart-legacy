@@ -70,7 +70,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(248, 23);
             this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add Category";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -87,6 +87,7 @@
             // 
             this.pnlColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlColor.BackColor = System.Drawing.Color.Red;
             this.pnlColor.Location = new System.Drawing.Point(105, 71);
             this.pnlColor.Name = "pnlColor";
