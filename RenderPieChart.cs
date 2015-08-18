@@ -12,8 +12,8 @@ namespace PaintDotNet.Effects
         private Surface m_surface = null;
         
         public RenderPieChart()
-            : base("Pie Chart", EOEffects.Properties.Resources.PieIcon1,
-            "Render", EffectFlags.SingleThreaded | EffectFlags.Configurable)
+            : base("Pie Chart", new Bitmap(typeof(RenderPieChart), "PieChart.png"),
+            SubmenuNames.Render, EffectFlags.Configurable)
         {
 
         }
