@@ -140,7 +140,8 @@ namespace PaintDotNet.Effects
 
             // Draw the item's text
             sb.Color = lbCategories.ForeColor;
-            e.Graphics.DrawString(item.ToString(), lbCategories.Font, sb,
+            string itemText = item.ToString() + " (" + item.Value + ")";
+            e.Graphics.DrawString(itemText, lbCategories.Font, sb,
                 (float)(box.Right + 2), (float)e.Bounds.Y);
         }
 
