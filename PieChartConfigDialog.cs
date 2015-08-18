@@ -182,10 +182,15 @@ namespace PaintDotNet.Effects
 
         protected override void InitDialogFromToken(PieChartConfigToken effectTokenCopy)
         {
+            Random randomGen = new Random();
+            KnownColor[] names = (KnownColor[])Enum.GetValues(typeof(KnownColor));
+            KnownColor randomColorName = names[randomGen.Next(names.Length)];
+            Color randomColor = Color.FromKnownColor(randomColorName);
+
             // Start by clearing the data on the form
             tbCategoryName.Name = string.Empty;
             tbCategoryValue.Name = string.Empty;
-            pnlColor.BackColor = Color.Red;
+            pnlColor.BackColor = randomColor;
             lbCategories.Items.Clear();
 
             int i = 1;
