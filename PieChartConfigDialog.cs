@@ -133,8 +133,7 @@ namespace PaintDotNet.Effects
             // Start by filling the backgorund
             if (selected)
             {
-                using (System.Drawing.Drawing2D.LinearGradientBrush lgb = new System.Drawing.Drawing2D.LinearGradientBrush(
-                    e.Bounds, Color.AliceBlue, Color.LightBlue, 90.0f))
+                using (SolidBrush lgb = new SolidBrush(Color.LightBlue))
                 {
                     e.Graphics.FillRectangle(lgb, e.Bounds);
                 }
