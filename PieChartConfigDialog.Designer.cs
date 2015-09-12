@@ -38,6 +38,8 @@
             this.tbCategoryName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
+            this.btnMoveUpCategory = new System.Windows.Forms.Button();
+            this.btnMoveDownCategory = new System.Windows.Forms.Button();
             this.lbCategories = new System.Windows.Forms.ListBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -135,6 +137,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnMoveUpCategory);
+            this.groupBox3.Controls.Add(this.btnMoveDownCategory);
             this.groupBox3.Controls.Add(this.btnRemoveCategory);
             this.groupBox3.Controls.Add(this.lbCategories);
             this.groupBox3.Location = new System.Drawing.Point(12, 146);
@@ -144,15 +148,39 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Existing Pie Chart Categories";
             // 
+            // btnMoveUpCategory
+            // 
+            this.btnMoveUpCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveUpCategory.Location = new System.Drawing.Point(6, 139);
+            this.btnMoveUpCategory.Name = "btnMoveUpCategory";
+            this.btnMoveUpCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveUpCategory.TabIndex = 1;
+            this.btnMoveUpCategory.Text = "Move Up";
+            this.btnMoveUpCategory.UseVisualStyleBackColor = true;
+            this.btnMoveUpCategory.Click += new System.EventHandler(this.btnMoveUpCategory_Click);
+            // 
+            // btnMoveDownCategory
+            // 
+            this.btnMoveDownCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMoveDownCategory.Location = new System.Drawing.Point(93, 139);
+            this.btnMoveDownCategory.Name = "btnMoveDownCategory";
+            this.btnMoveDownCategory.Size = new System.Drawing.Size(75, 23);
+            this.btnMoveDownCategory.TabIndex = 1;
+            this.btnMoveDownCategory.Text = "Move Down";
+            this.btnMoveDownCategory.UseVisualStyleBackColor = true;
+            this.btnMoveDownCategory.Click += new System.EventHandler(this.btnMoveDownCategory_Click);
+            // 
             // btnRemoveCategory
             // 
             this.btnRemoveCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoveCategory.Location = new System.Drawing.Point(6, 139);
+            this.btnRemoveCategory.Location = new System.Drawing.Point(180, 139);
             this.btnRemoveCategory.Name = "btnRemoveCategory";
-            this.btnRemoveCategory.Size = new System.Drawing.Size(248, 23);
+            this.btnRemoveCategory.Size = new System.Drawing.Size(75, 23);
             this.btnRemoveCategory.TabIndex = 1;
-            this.btnRemoveCategory.Text = "Remove Category";
+            this.btnRemoveCategory.Text = "Remove";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
             this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
@@ -255,6 +283,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbCategoryName;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnMoveUpCategory;
+        private System.Windows.Forms.Button btnMoveDownCategory;
         private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.ListBox lbCategories;
         private System.Windows.Forms.NumericUpDown txtAngle1;

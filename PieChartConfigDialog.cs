@@ -111,6 +111,30 @@ namespace PaintDotNet.Effects
             }
         }
 
+        private void btnMoveUpCategory_Click(object sender, EventArgs e)
+        {
+            if (lbCategories.SelectedIndex > 0)
+            {
+                lbCategories.Items.Insert(lbCategories.SelectedIndex - 1, lbCategories.SelectedItem);
+                lbCategories.SelectedIndex -= 2;
+                lbCategories.Items.RemoveAt(lbCategories.SelectedIndex + 2);
+
+                FinishTokenUpdate();
+            }
+        }
+
+        private void btnMoveDownCategory_Click(object sender, EventArgs e)
+        {
+            if ((lbCategories.SelectedIndex != -1) && (lbCategories.SelectedIndex < lbCategories.Items.Count - 1))
+            {
+                lbCategories.Items.Insert(lbCategories.SelectedIndex + 2, lbCategories.SelectedItem);
+                lbCategories.SelectedIndex += 2;
+                lbCategories.Items.RemoveAt(lbCategories.SelectedIndex - 2);
+
+                FinishTokenUpdate();
+            }
+        }
+
         private void lbCategories_DrawItem(object sender, DrawItemEventArgs e)
         {
             bool selected = lbCategories.SelectedIndex == e.Index;
