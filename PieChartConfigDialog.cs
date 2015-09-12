@@ -227,6 +227,21 @@ namespace PaintDotNet.Effects
             FinishTokenUpdate();
         }
 
+        private void radioBlack_CheckedChanged(object sender, EventArgs e)
+        {
+            FinishTokenUpdate();
+        }
+
+        private void radioGray_CheckedChanged(object sender, EventArgs e)
+        {
+            FinishTokenUpdate();
+        }
+
+        private void radioWhite_CheckedChanged(object sender, EventArgs e)
+        {
+            FinishTokenUpdate();
+        }
+
         #region EffectConfigDialog stuff
 
         protected override PieChartConfigToken CreateInitialToken()
@@ -257,11 +272,25 @@ namespace PaintDotNet.Effects
             }
 
             txtAngle1.Value = (decimal)effectTokenCopy.Angle;
+
+            if (effectTokenCopy.Outline == 0xffffffff)
+                radioWhite.Checked = true;
+            else if (effectTokenCopy.Outline == 0xff444444)
+                radioGray.Checked = true;
+            else
+                radioBlack.Checked = true;
         }
 
         protected override void LoadIntoTokenFromDialog(PieChartConfigToken writeValuesHere)
         {
             writeValuesHere.Angle = (double)txtAngle1.Value;
+
+            if (radioWhite.Checked)
+                writeValuesHere.Outline = 0xffffffff;
+            else if (radioGray.Checked)
+                writeValuesHere.Outline = 0xff444444;
+            else
+                writeValuesHere.Outline = 0xff000000;
 
             writeValuesHere.Data.Clear();
 

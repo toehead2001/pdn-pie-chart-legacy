@@ -46,6 +46,9 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.txtAngle1 = new System.Windows.Forms.NumericUpDown();
             this.angleSelector1 = new AngleControl.AngleSelector();
+            this.radioBlack = new System.Windows.Forms.RadioButton();
+            this.radioGray = new System.Windows.Forms.RadioButton();
+            this.radioWhite = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -227,6 +230,42 @@
             this.angleSelector1.TabIndex = 1;
             this.angleSelector1.AngleChanged += new AngleControl.AngleSelector.AngleChangedDelegate(this.angleSelector1_AngleChanged);
             // 
+            // radioBlack
+            // 
+            this.radioBlack.AutoSize = true;
+            this.radioBlack.Location = new System.Drawing.Point(175, 325);
+            this.radioBlack.Name = "radioBlack";
+            this.radioBlack.Size = new System.Drawing.Size(52, 17);
+            this.radioBlack.TabIndex = 0;
+            this.radioBlack.TabStop = true;
+            this.radioBlack.Text = "Black";
+            this.radioBlack.UseVisualStyleBackColor = true;
+            this.radioBlack.CheckedChanged += new System.EventHandler(this.radioBlack_CheckedChanged);
+            // 
+            // radioGray
+            // 
+            this.radioGray.AutoSize = true;
+            this.radioGray.Location = new System.Drawing.Point(175, 348);
+            this.radioGray.Name = "radioGray";
+            this.radioGray.Size = new System.Drawing.Size(47, 17);
+            this.radioGray.TabIndex = 1;
+            this.radioGray.TabStop = true;
+            this.radioGray.Text = "Gray";
+            this.radioGray.UseVisualStyleBackColor = true;
+            this.radioGray.CheckedChanged += new System.EventHandler(this.radioGray_CheckedChanged);
+            // 
+            // radioWhite
+            // 
+            this.radioWhite.AutoSize = true;
+            this.radioWhite.Location = new System.Drawing.Point(175, 371);
+            this.radioWhite.Name = "radioWhite";
+            this.radioWhite.Size = new System.Drawing.Size(53, 17);
+            this.radioWhite.TabIndex = 2;
+            this.radioWhite.TabStop = true;
+            this.radioWhite.Text = "White";
+            this.radioWhite.UseVisualStyleBackColor = true;
+            this.radioWhite.CheckedChanged += new System.EventHandler(this.radioWhite_CheckedChanged);
+            // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -258,6 +297,9 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtAngle1);
             this.Controls.Add(this.angleSelector1);
+            this.Controls.Add(this.radioWhite);
+            this.Controls.Add(this.radioGray);
+            this.Controls.Add(this.radioBlack);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "PieChartConfigDialog";
@@ -289,6 +331,9 @@
         private System.Windows.Forms.ListBox lbCategories;
         private System.Windows.Forms.NumericUpDown txtAngle1;
         private AngleControl.AngleSelector angleSelector1;
+        private System.Windows.Forms.RadioButton radioBlack;
+        private System.Windows.Forms.RadioButton radioGray;
+        private System.Windows.Forms.RadioButton radioWhite;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ColorDialog colorDialog1;

@@ -697,7 +697,7 @@ namespace EOFC
 
         // TODO: Make this obey blending rules properly
         public unsafe void DrawPieChart(uint* pxls, int width, int height,
-            PieChartSection[] sections)
+            PieChartSection[] sections, uint color)
         {
             if (0 == sections.Length)
             {
@@ -802,11 +802,11 @@ namespace EOFC
                             new Vector2D(xcenter + (float)(radius * Math.Cos(tempAngle)),
                             ycenter - (float)(radius * Math.Sin(tempAngle))), 1.75f));
                 }
-                FillStadiums(new SimpleImage(width, height, pxls), 0xFF000000, stadiums.ToArray(), 2f);
+                FillStadiums(new SimpleImage(width, height, pxls), color, stadiums.ToArray(), 2f);
             }
 
             // Draw a circular border around the pie chart
-            FrameCircle_Composite(circle, 3.5f, 0xFF000000, pxls, width, height);
+            FrameCircle_Composite(circle, 3.5f, color, pxls, width, height);
         }
 
         public unsafe void DrawRoundLine(int x1, int y1, int x2, int y2, float lineWidth, uint clr,

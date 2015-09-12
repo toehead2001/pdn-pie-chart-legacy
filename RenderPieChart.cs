@@ -129,7 +129,7 @@ namespace PaintDotNet.Effects
                 else
                 {
                     m_d32.DrawPieChart((uint*)m_surface.GetRowAddressUnchecked(0),
-                        srcArgs.Width, srcArgs.Height, newToken.Data.ToArray());
+                        srcArgs.Width, srcArgs.Height, newToken.Data.ToArray(), newToken.Outline);
                 }
             }
         }
