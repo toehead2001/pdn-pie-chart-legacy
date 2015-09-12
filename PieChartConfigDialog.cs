@@ -102,11 +102,24 @@ namespace PaintDotNet.Effects
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            if (-1 != lbCategories.SelectedIndex)
+            if ((lbCategories.SelectedIndex != -1) && (lbCategories.Items.Count == 1))
             {
                 lbCategories.Items.RemoveAt(lbCategories.SelectedIndex);
 
-                // Update
+                FinishTokenUpdate();
+            }
+            else if ((lbCategories.SelectedIndex != -1) && (lbCategories.SelectedIndex < lbCategories.Items.Count - 1))
+            {
+                lbCategories.SelectedIndex += 1;
+                lbCategories.Items.RemoveAt(lbCategories.SelectedIndex - 1);
+
+                FinishTokenUpdate();
+            }
+            else if ((lbCategories.SelectedIndex != -1) && (lbCategories.SelectedIndex == lbCategories.Items.Count - 1))
+            {
+                lbCategories.SelectedIndex -= 1;
+                lbCategories.Items.RemoveAt(lbCategories.SelectedIndex + 1);
+
                 FinishTokenUpdate();
             }
         }
