@@ -112,24 +112,25 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>Build your pie chart by entering category names, values, and colors. The category name is a just a placeholder to help you keep track of things, but does not affect rendering. The category value must be a numerical value greater than zero. You can click on the category color to change it.
+    <value>Build your pie chart by entering category names, values, and colors. The category name is a just a placeholder to help you keep track of things, and does not affect rendering. The category value must be a numerical value greater than zero. You can click on the category color to change it.
 
 All values for pie chart categories will be added up and pie slice size will be determined based on their percentage of the whole. As a simple example, consider a pie chart built with:
 Category A - Value of 1.0, color red
 Category B - Value of 2.0, color blue
 This pie chart will have the first third of it be red and the remaining two thirds blue. The following chart would be exactly the same, even though the numbers are different:
 Category A - Value of 7.0, color red
-Category B - Value of 14.0 color blue
+Category B - Value of 14.0, color blue
 
 Category values do not have to be whole numbers.</value>
   </data>
-  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing">
     <value>17, 17</value>
-  </metadata>
+  </data>
 </root>

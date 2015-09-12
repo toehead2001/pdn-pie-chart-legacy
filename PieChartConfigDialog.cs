@@ -48,7 +48,7 @@ namespace PaintDotNet.Effects
         {
             e.Cancel = true;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PieChartConfigDialog));
-            MessageBox.Show(resources.GetString("textBox1.Text"), "Pie Chart");
+            MessageBox.Show(resources.GetString("textBox1.Text"), "Pie Chart - Help");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
