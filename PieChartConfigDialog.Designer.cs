@@ -42,6 +42,8 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.txtAngle1 = new System.Windows.Forms.NumericUpDown();
+            this.angleSelector1 = new AngleControl.AngleSelector();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -169,10 +171,38 @@
             this.lbCategories.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbCategories_DrawItem);
             this.lbCategories.SelectedIndexChanged += new System.EventHandler(this.lbCategories_SelectedIndexChanged);
             // 
+            // txtAngle1
+            // 
+            this.txtAngle1.Location = new System.Drawing.Point(75, 325);
+            this.txtAngle1.Name = "txtAngle1";
+            this.txtAngle1.Size = new System.Drawing.Size(60, 20);
+            this.txtAngle1.TabIndex = 1;
+            this.txtAngle1.DecimalPlaces = 2;
+            this.txtAngle1.Maximum = new decimal(new int[] {
+            181,
+            0,
+            0,
+            0});
+            this.txtAngle1.Minimum = new decimal(new int[] {
+            181,
+            0,
+            0,
+            -2147483648});
+            this.txtAngle1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAngle1.ValueChanged += new System.EventHandler(this.txtAngle1_ValueChanged);
+            // 
+            // angleSelector1
+            // 
+            this.angleSelector1.Angle = 0;
+            this.angleSelector1.Location = new System.Drawing.Point(6, 325);
+            this.angleSelector1.Name = "angleSelector1";
+            this.angleSelector1.TabIndex = 1;
+            this.angleSelector1.AngleChanged += new AngleControl.AngleSelector.AngleChangedDelegate(this.angleSelector1_AngleChanged);
+            // 
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(116, 320);
+            this.btnOK.Location = new System.Drawing.Point(116, 415);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -182,7 +212,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(197, 320);
+            this.btnCancel.Location = new System.Drawing.Point(197, 415);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
@@ -195,9 +225,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(284, 355);
+            this.ClientSize = new System.Drawing.Size(284, 450);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.txtAngle1);
+            this.Controls.Add(this.angleSelector1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Name = "PieChartConfigDialog";
@@ -225,6 +257,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.ListBox lbCategories;
+        private System.Windows.Forms.NumericUpDown txtAngle1;
+        private AngleControl.AngleSelector angleSelector1;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.ColorDialog colorDialog1;

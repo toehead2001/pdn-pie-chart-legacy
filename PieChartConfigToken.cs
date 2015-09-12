@@ -8,23 +8,25 @@ namespace PaintDotNet.Effects
     class PieChartConfigToken : EffectConfigToken
     {
         private List<EOFC.Drawing32.PieChartSection> m_sections = new List<EOFC.Drawing32.PieChartSection>();
+        double t_angle;
 
         /// <summary>
         /// Initializes the configuration token with empty dictionaries
         /// </summary>
         public PieChartConfigToken() : base()
         {
-
+            t_angle = 0;
         }
 
-        private PieChartConfigToken(List<EOFC.Drawing32.PieChartSection> sections)
+        private PieChartConfigToken(List<EOFC.Drawing32.PieChartSection> sections, double angle)
         {
             m_sections = new List<EOFC.Drawing32.PieChartSection>(sections);
+            t_angle = angle;
         }
         
         public override object Clone()
         {
-            return new PieChartConfigToken(m_sections);
+            return new PieChartConfigToken(m_sections, t_angle);
         }
 
         public List<EOFC.Drawing32.PieChartSection> Data
@@ -32,6 +34,17 @@ namespace PaintDotNet.Effects
             get
             {
                 return m_sections;
+            }
+        }
+        public double Angle
+        {
+            get
+            {
+                return t_angle;
+            }
+            set
+            {
+                t_angle = value;
             }
         }
     }

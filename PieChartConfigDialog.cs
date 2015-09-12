@@ -172,6 +172,24 @@ namespace PaintDotNet.Effects
             }
         }
 
+        private void angleSelector1_AngleChanged()
+        {
+            txtAngle1.Value = (decimal)angleSelector1.Angle;
+            FinishTokenUpdate();
+        }
+
+        private void txtAngle1_ValueChanged(object sender, EventArgs e)
+        {
+            if (txtAngle1.Value == txtAngle1.Maximum)
+                txtAngle1.Value = txtAngle1.Minimum + 1;
+
+            if (txtAngle1.Value == txtAngle1.Minimum)
+                txtAngle1.Value = txtAngle1.Maximum - 1;
+
+            angleSelector1.Angle = (double)txtAngle1.Value;
+            FinishTokenUpdate();
+        }
+
         #region EffectConfigDialog stuff
 
         protected override PieChartConfigToken CreateInitialToken()
@@ -200,10 +218,14 @@ namespace PaintDotNet.Effects
                 lbCategories.Items.Add(item);
                 i++;
             }
+
+            txtAngle1.Value = (decimal)effectTokenCopy.Angle;
         }
 
         protected override void LoadIntoTokenFromDialog(PieChartConfigToken writeValuesHere)
         {
+            writeValuesHere.Angle = (double)txtAngle1.Value;
+
             writeValuesHere.Data.Clear();
 
             for (int i = 0; i < lbCategories.Items.Count; i++)

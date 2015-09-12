@@ -30,6 +30,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>PaintDotNet.Effects</RootNamespace>
@@ -56,6 +57,9 @@
     <EmbeddedResource Include="PieChart.png" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AngleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Math\Circle2D.cs" />
     <Compile Include="Math\CircleArc.cs" />

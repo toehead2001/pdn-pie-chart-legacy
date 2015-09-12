@@ -52,11 +52,12 @@ namespace PaintDotNet.Effects
     [PluginSupportInfo(typeof(PluginSupportInfo), DisplayName = "Pie Chart")]
 
 
-	internal class RenderPieChart : Effect<PieChartConfigToken>
+    internal class RenderPieChart : Effect<PieChartConfigToken>
     {
         private EOFC.Drawing32 m_d32 = new EOFC.Drawing32();
         
         private Surface m_surface = null;
+        double angle_token;
         
         public RenderPieChart()
             : base("Pie Chart", new Bitmap(typeof(RenderPieChart), "PieChart.png"),
@@ -80,15 +81,25 @@ namespace PaintDotNet.Effects
             {
                 Rectangle r = renderRects[startIndex];
 
+                Rectangle selection = EnvironmentParameters.GetSelection(SrcArgs.Bounds).GetBoundsInt();
+                int CenterX = ((selection.Right - selection.Left) / 2) + selection.Left;
+                int CenterY = ((selection.Bottom - selection.Top) / 2) + selection.Top;
+
+                float rotatedX;
+                float rotatedY;
+                double angle = angle_token * Math.PI / 180.0;
+                double cos = Math.Cos(angle);
+                double sin = Math.Sin(angle);
+
                 for (int y = r.Top; y < r.Bottom; y++)
                 {
                     for (int x = r.Left; x < r.Right; x++)
                     {
-                        unsafe
-                        {
-                            *DstArgs.Surface.GetPointAddressUnchecked(x, y) =
-                                m_surface.GetPointUnchecked(x, y);
-                        }
+                        rotatedX = (float)((x - CenterX) * cos - (y - CenterY) * sin + CenterX);
+                        rotatedY = (float)((y - CenterY) * cos - (x - CenterX) * -1.0 * sin + CenterY);
+
+                            DstArgs.Surface[x,y] =
+                                m_surface.GetBilinearSample(rotatedX, rotatedY);
                     }
                 }
 
@@ -99,6 +110,7 @@ namespace PaintDotNet.Effects
 
         protected override void OnSetRenderInfo(PieChartConfigToken newToken, RenderArgs dstArgs, RenderArgs srcArgs)
         {
+            angle_token = newToken.Angle;
             if (null != m_surface)
             {
                 m_surface.Dispose();
