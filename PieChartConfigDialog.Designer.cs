@@ -44,13 +44,17 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.groupBoxAngle = new System.Windows.Forms.GroupBox();
             this.txtAngle1 = new System.Windows.Forms.NumericUpDown();
             this.angleSelector1 = new AngleControl.AngleSelector();
+            this.groupBoxOutline = new System.Windows.Forms.GroupBox();
             this.radioBlack = new System.Windows.Forms.RadioButton();
             this.radioGray = new System.Windows.Forms.RadioButton();
             this.radioWhite = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBoxAngle.SuspendLayout();
+            this.groupBoxOutline.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -202,12 +206,23 @@
             this.lbCategories.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lbCategories_DrawItem);
             this.lbCategories.SelectedIndexChanged += new System.EventHandler(this.lbCategories_SelectedIndexChanged);
             // 
+            // groupBoxAngle
+            // 
+            this.groupBoxAngle.Controls.Add(this.txtAngle1);
+            this.groupBoxAngle.Controls.Add(this.angleSelector1);
+            this.groupBoxAngle.Location = new System.Drawing.Point(106, 320);
+            this.groupBoxAngle.Name = "groupBoxAngle";
+            this.groupBoxAngle.Size = new System.Drawing.Size(166, 84);
+            this.groupBoxAngle.TabIndex = 4;
+            this.groupBoxAngle.TabStop = false;
+            this.groupBoxAngle.Text = "Rotation";
+            // 
             // txtAngle1
             // 
-            this.txtAngle1.Location = new System.Drawing.Point(75, 325);
+            this.txtAngle1.Location = new System.Drawing.Point(75, 18);
             this.txtAngle1.Name = "txtAngle1";
-            this.txtAngle1.Size = new System.Drawing.Size(60, 20);
-            this.txtAngle1.TabIndex = 1;
+            this.txtAngle1.Size = new System.Drawing.Size(60, 28);
+            this.txtAngle1.TabIndex = 0;
             this.txtAngle1.DecimalPlaces = 2;
             this.txtAngle1.Maximum = new decimal(new int[] {
             181,
@@ -225,15 +240,27 @@
             // angleSelector1
             // 
             this.angleSelector1.Angle = 0;
-            this.angleSelector1.Location = new System.Drawing.Point(6, 325);
+            this.angleSelector1.Location = new System.Drawing.Point(6, 16);
             this.angleSelector1.Name = "angleSelector1";
             this.angleSelector1.TabIndex = 1;
             this.angleSelector1.AngleChanged += new AngleControl.AngleSelector.AngleChangedDelegate(this.angleSelector1_AngleChanged);
             // 
+            // groupBoxOutline
+            // 
+            this.groupBoxOutline.Controls.Add(this.radioBlack);
+            this.groupBoxOutline.Controls.Add(this.radioGray);
+            this.groupBoxOutline.Controls.Add(this.radioWhite);
+            this.groupBoxOutline.Location = new System.Drawing.Point(12, 320);
+            this.groupBoxOutline.Name = "groupBoxOutline";
+            this.groupBoxOutline.Size = new System.Drawing.Size(82, 84);
+            this.groupBoxOutline.TabIndex = 3;
+            this.groupBoxOutline.TabStop = false;
+            this.groupBoxOutline.Text = "Outline Color";
+            // 
             // radioBlack
             // 
             this.radioBlack.AutoSize = true;
-            this.radioBlack.Location = new System.Drawing.Point(175, 325);
+            this.radioBlack.Location = new System.Drawing.Point(6, 16);
             this.radioBlack.Name = "radioBlack";
             this.radioBlack.Size = new System.Drawing.Size(52, 17);
             this.radioBlack.TabIndex = 0;
@@ -245,7 +272,7 @@
             // radioGray
             // 
             this.radioGray.AutoSize = true;
-            this.radioGray.Location = new System.Drawing.Point(175, 348);
+            this.radioGray.Location = new System.Drawing.Point(6, 38);
             this.radioGray.Name = "radioGray";
             this.radioGray.Size = new System.Drawing.Size(47, 17);
             this.radioGray.TabIndex = 1;
@@ -257,7 +284,7 @@
             // radioWhite
             // 
             this.radioWhite.AutoSize = true;
-            this.radioWhite.Location = new System.Drawing.Point(175, 371);
+            this.radioWhite.Location = new System.Drawing.Point(6, 60);
             this.radioWhite.Name = "radioWhite";
             this.radioWhite.Size = new System.Drawing.Size(53, 17);
             this.radioWhite.TabIndex = 2;
@@ -272,7 +299,7 @@
             this.btnOK.Location = new System.Drawing.Point(116, 415);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 3;
+            this.btnOK.TabIndex = 5;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
@@ -282,7 +309,7 @@
             this.btnCancel.Location = new System.Drawing.Point(197, 415);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 4;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
@@ -295,19 +322,22 @@
             this.ClientSize = new System.Drawing.Size(284, 450);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.txtAngle1);
-            this.Controls.Add(this.angleSelector1);
-            this.Controls.Add(this.radioWhite);
-            this.Controls.Add(this.radioGray);
-            this.Controls.Add(this.radioBlack);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBoxAngle);
+            this.Controls.Add(this.groupBoxOutline);
             this.Name = "PieChartConfigDialog";
             this.Text = "Pie Chart";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBoxAngle.ResumeLayout(false);
+            this.groupBoxAngle.PerformLayout();
+            this.groupBoxOutline.ResumeLayout(false);
+            this.groupBoxOutline.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
             this.ActiveControl = tbCategoryName;
             this.HelpButton = true;
             this.HelpButtonClicked += new System.ComponentModel.CancelEventHandler(helpButtonClicked);
@@ -329,8 +359,10 @@
         private System.Windows.Forms.Button btnMoveDownCategory;
         private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.ListBox lbCategories;
+        private System.Windows.Forms.GroupBox groupBoxAngle;
         private System.Windows.Forms.NumericUpDown txtAngle1;
         private AngleControl.AngleSelector angleSelector1;
+        private System.Windows.Forms.GroupBox groupBoxOutline;
         private System.Windows.Forms.RadioButton radioBlack;
         private System.Windows.Forms.RadioButton radioGray;
         private System.Windows.Forms.RadioButton radioWhite;
