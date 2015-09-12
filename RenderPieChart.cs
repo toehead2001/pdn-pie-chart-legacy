@@ -124,7 +124,7 @@ namespace PaintDotNet.Effects
             {
                 if (0 == newToken.Data.Count)
                 {
-                    m_surface.ClearWithCheckerboardPattern();
+                    m_surface.Clear(ColorBgra.Transparent);
                 }
                 else
                 {
